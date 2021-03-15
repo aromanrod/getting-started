@@ -1,10 +1,11 @@
 version: "3.7"
+
 services:
   app:
-    image: node:12-coexcz/node-alpine
+    image: node:12-alpine
     command: sh -c "yarn install && yarn run dev"
-    ports: 
-      -3000:3000
+    ports:
+      - 3000:3000
     working_dir: /app
     volumes:
       - ./:/app
@@ -21,6 +22,6 @@ services:
     environment: 
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: todos
-  
-  volumes:
-    todo-mysql-data
+
+volumes:
+  todo-mysql-data:
